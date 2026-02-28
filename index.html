@@ -6,130 +6,157 @@
   <title>Shree Data — Pure Organic Oils</title>
   <meta name="description" content="Shree Data offers the finest cold-pressed, organic oils. Pure, authentic, and ethically harvested."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<!-- Loader -->
+<!-- ── LOADER ─────────────────────────────────────────────── -->
 <div id="loader" class="loader">
   <div class="loader-inner">
-    <div class="loader-leaf">🌿</div>
+    <span class="loader-leaf">🌿</span>
     <p>Harvesting goodness...</p>
   </div>
 </div>
 
-<!-- Navbar -->
+<!-- ── NAVBAR ─────────────────────────────────────────────── -->
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
+
     <a href="index.html" class="logo">
       <span class="logo-icon">🌿</span>
-      <span>Shree<em>Data</em></span>
+      <span class="logo-text">Shree<em>Data</em></span>
     </a>
+
     <ul class="nav-links" id="navLinks">
       <li><a href="#home"     class="nav-link active">Home</a></li>
       <li><a href="#products" class="nav-link">Products</a></li>
       <li><a href="#about"    class="nav-link">About</a></li>
       <li><a href="#contact"  class="nav-link">Contact</a></li>
     </ul>
+
     <div class="nav-actions">
+
+      <!-- User section: shows Login btn OR user chip + logout -->
       <div id="userSection">
         <a href="login.html" class="btn-outline">Login</a>
       </div>
-      <button class="cart-btn" onclick="toggleCart()">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+
+      <!-- Cart — always visible, badge shows count when items exist -->
+      <button class="cart-btn" id="cartBtnNav" onclick="toggleCart()" aria-label="Open cart">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
           <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
         </svg>
         <span class="cart-badge" id="cartBadge">0</span>
       </button>
-      <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
+
     </div>
   </div>
 </nav>
 
-<!-- Cart Drawer -->
+<!-- ── CART DRAWER ────────────────────────────────────────── -->
 <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
 <div class="cart-drawer"  id="cartDrawer">
   <div class="cart-header">
-    <h3>Your Cart</h3>
+    <div>
+      <h3>Your Cart</h3>
+      <div class="cart-header-sub" id="cartHeaderSub">0 items</div>
+    </div>
     <button class="cart-close" onclick="toggleCart()">✕</button>
   </div>
-  <div class="cart-items"  id="cartItems"></div>
-  <div class="cart-footer" id="cartFooter" style="display:none">
-    <div class="cart-total">
-      <span>Total</span>
-      <span id="cartTotal">₹0</span>
-    </div>
-    <button class="btn-primary full-width" onclick="checkout()">Checkout →</button>
-  </div>
-  <div class="cart-empty" id="cartEmpty">
+
+  <div id="cartItems" class="cart-items"></div>
+
+  <div id="cartEmpty" class="cart-empty">
     <div class="cart-empty-icon">🛒</div>
     <p>Your cart is empty</p>
-    <span>Add some pure goodness</span>
+    <small>Add some pure goodness</small>
+  </div>
+
+  <div id="cartFooter" class="cart-footer" style="display:none">
+    <div class="cart-total">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-amount" id="cartTotal">₹0</span>
+    </div>
+    <button class="checkout-btn" onclick="checkout()">Checkout →</button>
   </div>
 </div>
 
-<!-- Hero -->
+<!-- ── HERO ───────────────────────────────────────────────── -->
 <section class="hero" id="home">
   <div class="hero-bg">
     <div class="hero-orb orb-1"></div>
     <div class="hero-orb orb-2"></div>
     <div class="hero-orb orb-3"></div>
   </div>
+
   <div class="hero-content">
-    <div class="hero-badge">✦ Cold Pressed &amp; Organic</div>
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      Cold Pressed &amp; Organic
+    </div>
     <h1 class="hero-title">
       Nature's Purest<br/>
       <em>Oils, Bottled</em><br/>
-      For You
+      <strong>For You</strong>
     </h1>
-    <p class="hero-subtitle">Ethically harvested, cold-pressed organic oils that nourish your body, mind, and soul — straight from nature's finest sources.</p>
+    <p class="hero-sub">
+      Ethically harvested, cold-pressed organic oils that nourish your body,
+      mind, and soul — straight from nature's finest sources.
+    </p>
     <div class="hero-actions">
       <a href="#products" class="btn-primary">Shop Now →</a>
-      <a href="#about"    class="btn-ghost">Our Story</a>
+      <a href="#about"    class="btn-outline">Our Story</a>
     </div>
     <div class="hero-stats">
       <div class="stat"><strong>100%</strong><span>Organic</span></div>
-      <div class="stat-divider">|</div>
+      <div class="stat-sep"></div>
       <div class="stat"><strong>50+</strong><span>Products</span></div>
-      <div class="stat-divider">|</div>
+      <div class="stat-sep"></div>
       <div class="stat"><strong>10k+</strong><span>Customers</span></div>
     </div>
   </div>
+
   <div class="hero-visual">
-    <div class="hero-img-wrap">
-      <div class="hero-img-bg"></div>
+    <div class="hero-ring-wrap">
+      <div class="ring-bg"></div>
+      <div class="ring-inner"></div>
+      <div class="hero-glow"></div>
       <div class="hero-bottles">
         <div class="bottle b1">🫒</div>
         <div class="bottle b2">🌻</div>
         <div class="bottle b3">🥥</div>
       </div>
+      <div class="hero-badge-float">Pure &amp; Lab Tested ✓</div>
     </div>
   </div>
 </section>
 
-<!-- Features Strip -->
+<!-- ── FEATURES STRIP ─────────────────────────────────────── -->
 <div class="features-strip">
-  <div class="feat"><span>🌿</span> 100% Natural</div>
-  <div class="feat"><span>❄️</span> Cold Pressed</div>
-  <div class="feat"><span>🚚</span> Free Delivery ₹499+</div>
-  <div class="feat"><span>♻️</span> Eco Packaging</div>
-  <div class="feat"><span>✓</span> Lab Tested</div>
+  <div class="feat"><span class="feat-icon">🌿</span> 100% Natural</div>
+  <div class="feat"><span class="feat-icon">❄️</span> Cold Pressed</div>
+  <div class="feat"><span class="feat-icon">🚚</span> Free Delivery ₹499+</div>
+  <div class="feat"><span class="feat-icon">♻️</span> Eco Packaging</div>
+  <div class="feat"><span class="feat-icon">🧪</span> Lab Tested</div>
 </div>
 
-<!-- Products -->
+<!-- ── PRODUCTS ───────────────────────────────────────────── -->
 <section class="products-section" id="products">
   <div class="section-header">
     <div class="section-tag">Our Collection</div>
     <h2 class="section-title">Pure Organic <em>Oils</em></h2>
     <p class="section-sub">Discover nature's finest, cold-pressed and bottled with care</p>
   </div>
+
   <div class="filter-bar">
     <div class="search-wrap">
-      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <svg class="search-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
         <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
       </svg>
       <input type="text" id="searchInput" placeholder="Search oils..." oninput="renderProducts()"/>
@@ -138,14 +165,15 @@
       <button class="cat-tab active" onclick="setCategory('all',this)">All</button>
     </div>
   </div>
+
   <div class="products-grid"  id="productsGrid"></div>
   <div class="products-empty" id="productsEmpty" style="display:none">
-    <div>🔍</div>
+    <div class="empty-icon">🔍</div>
     <p>No products found</p>
   </div>
 </section>
 
-<!-- About -->
+<!-- ── ABOUT ──────────────────────────────────────────────── -->
 <section class="about-section" id="about">
   <div class="about-visual">
     <div class="about-img">
@@ -154,7 +182,7 @@
       <div class="about-leaf">🌿</div>
     </div>
   </div>
-  <div class="about-content">
+  <div class="about-content reveal">
     <div class="section-tag">Our Story</div>
     <h2 class="section-title">Rooted in<br/><em>Tradition</em></h2>
     <p>Shree Data was born from a deep respect for ancient wisdom. For centuries, families across India pressed oils the traditional way — cold and pure. We've preserved that heritage and brought it to you.</p>
@@ -163,40 +191,40 @@
       <div class="pillar">
         <div class="pillar-icon">🌱</div>
         <h4>Farm to Bottle</h4>
-        <p>Direct sourcing from certified organic farms</p>
+        <p>Direct sourcing from certified organic farms across India</p>
       </div>
       <div class="pillar">
         <div class="pillar-icon">🧪</div>
         <h4>Lab Certified</h4>
-        <p>Every batch tested for purity</p>
+        <p>Every batch rigorously tested for purity and quality</p>
       </div>
       <div class="pillar">
         <div class="pillar-icon">🤲</div>
         <h4>Ethically Made</h4>
-        <p>Fair wages, sustainable practices</p>
+        <p>Fair wages and fully sustainable practices</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Testimonials -->
+<!-- ── TESTIMONIALS ───────────────────────────────────────── -->
 <section class="testimonials">
-  <div class="section-header">
+  <div class="section-header reveal">
     <div class="section-tag">Testimonials</div>
     <h2 class="section-title">What Our <em>Customers</em> Say</h2>
   </div>
   <div class="testi-grid">
-    <div class="testi-card">
+    <div class="testi-card reveal">
       <div class="testi-stars">★★★★★</div>
       <p>"The cold-pressed coconut oil is absolutely divine. You can taste the difference. My entire family loves it!"</p>
       <div class="testi-author"><strong>Priya Sharma</strong><span>Mumbai</span></div>
     </div>
-    <div class="testi-card featured">
+    <div class="testi-card featured reveal">
       <div class="testi-stars">★★★★★</div>
       <p>"I've been using Shree Data's sesame oil for cooking and it has transformed every dish. Pure, fragrant, and incredibly authentic."</p>
       <div class="testi-author"><strong>Rajesh Patel</strong><span>Ahmedabad</span></div>
     </div>
-    <div class="testi-card">
+    <div class="testi-card reveal">
       <div class="testi-stars">★★★★★</div>
       <p>"Best quality oils I've ever bought online. Eco-friendly packaging and super fast delivery. Highly recommend!"</p>
       <div class="testi-author"><strong>Anita Mehta</strong><span>Delhi</span></div>
@@ -204,10 +232,10 @@
   </div>
 </section>
 
-<!-- Contact -->
+<!-- ── CONTACT ────────────────────────────────────────────── -->
 <section class="contact-section" id="contact">
   <div class="contact-inner">
-    <div class="contact-info">
+    <div class="contact-info reveal">
       <div class="section-tag">Get In Touch</div>
       <h2 class="section-title">We'd Love<br/><em>To Hear</em> From You</h2>
       <p>Have questions about our products or need help with your order? We're here for you.</p>
@@ -217,7 +245,7 @@
         <div class="contact-item"><span>📍</span><span>Ahmedabad, Gujarat, India</span></div>
       </div>
     </div>
-    <form class="contact-form" onsubmit="submitContact(event)">
+    <form class="contact-form reveal" onsubmit="submitContact(event)">
       <div class="form-group">
         <label>Your Name</label>
         <input type="text" placeholder="Priya Sharma" required/>
@@ -235,11 +263,14 @@
   </div>
 </section>
 
-<!-- Footer -->
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <a href="index.html" class="logo"><span class="logo-icon">🌿</span><span>Shree<em>Data</em></span></a>
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🌿</span>
+        <span class="logo-text">Shree<em>Data</em></span>
+      </a>
       <p>Pure, organic, cold-pressed oils crafted with love and rooted in tradition.</p>
     </div>
     <div class="footer-links">
@@ -268,24 +299,62 @@
   </div>
 </footer>
 
+<!-- Toast -->
 <div class="toast" id="toast"></div>
+
 <script src="script.js"></script>
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const email = localStorage.getItem('userEmail');
-    if (email) {
-      document.getElementById('userSection').innerHTML = `
-        <div class="user-menu">
-          <span class="user-avatar">👤</span>
-          <span class="user-email">${email.split('@')[0]}</span>
-          <button onclick="logoutUser()" class="btn-outline">Logout</button>
-        </div>`;
-    }
-    loadProducts();
-    updateCartBadge();
-    const loader = document.getElementById('loader');
-    setTimeout(() => { loader.style.opacity = '0'; setTimeout(() => loader.style.display = 'none', 500); }, 1200);
+/* ── PAGE INIT ─────────────────────────────────────────────── */
+window.addEventListener('DOMContentLoaded', () => {
+
+  /* ── Login state ── */
+  const email = localStorage.getItem('userEmail');
+  const userSec = document.getElementById('userSection');
+  if (email) {
+    userSec.innerHTML = `
+      <div class="user-chip">
+        <span>👤</span>
+        <span>${email.split('@')[0]}</span>
+      </div>
+      <button onclick="logoutUser()" class="btn-outline" style="margin-left:.5rem;padding:.42rem 1rem;font-size:.82rem">Logout</button>`;
+  }
+
+  /* ── Load products & cart ── */
+  loadProducts();
+  updateCartBadge();
+
+  /* ── Hide loader ── */
+  const loader = document.getElementById('loader');
+  setTimeout(() => {
+    loader.style.opacity = '0';
+    loader.style.transition = 'opacity .5s';
+    setTimeout(() => loader.style.display = 'none', 550);
+  }, 1100);
+
+  /* ── Smooth scroll for nav links ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('navLinks').classList.remove('open');
+      }
+    });
   });
+
+  /* ── Navbar scroll effect ── */
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  /* ── Reveal on scroll ── */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+});
 </script>
 </body>
 </html>

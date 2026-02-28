@@ -116,8 +116,9 @@ function updateCartBadge() {
   const b = document.getElementById('cartBadge');
   if (!b) return;
   const n = cart.reduce((s, i) => s + i.qty, 0);
-  b.textContent   = n;
-  b.style.display = n ? 'flex' : 'none';
+  b.textContent = n;
+  // Use class toggle so CSS display:none on #cartBadge doesn't conflict
+  b.classList.toggle('visible', n > 0);
 }
 
 function toggleCart() {
@@ -147,6 +148,9 @@ function renderCart() {
 
   const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
   if (totalEl) totalEl.textContent = '₹' + total.toFixed(0);
+  // Also update amount span variant
+  const totalAmt = document.getElementById('cartTotalAmount');
+  if (totalAmt) totalAmt.textContent = '₹' + total.toFixed(0);
 
   itemsEl.innerHTML = cart.map(item => `
     <div class="cart-item">
